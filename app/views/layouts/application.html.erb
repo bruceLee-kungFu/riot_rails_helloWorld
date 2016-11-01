@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Riotjs03</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= yield %>
+  <!-- place the custom tag anywhere inside the body -->
+  <hr>
+  <hello></hello>
+  <hr>
+
+    <!-- include the tag (Riot likes you to end these file names in .tag but then you lose syntax highlighting in some editors. I have seen some people naming these .html instead like in the ToDo MVC example. I like this better than a generic .tag extension) -->
+    <script type="riot/tag" src="/components/hello.tag"></script>
+  <!-- include riot.js -->
+  <%= javascript_include_tag 'riot' %>
+  <!-- mount the tag -->
+  <script>riot.mount('hello'); // or riot.mount('*'); to load all tags.</script>
+
+</body>
+</html>
